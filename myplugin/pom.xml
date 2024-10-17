@@ -7,6 +7,10 @@
   <version>1.0-SNAPSHOT</version>
   <name>myplugin</name>
   <url>http://maven.apache.org</url>
+  <properties>
+    <maven.compiler.source>17</maven.compiler.source>  <!-- or higher version like 17 -->
+    <maven.compiler.target>17</maven.compiler.target>  <!-- or higher version like 17 -->
+</properties>
   <repositories>
     <repository>
         <id>spigot-repo</id>
@@ -27,4 +31,17 @@
       <scope>provided</scope>
     </dependency>
   </dependencies>
+      <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>1.8</source>  <!-- or higher version like 17 -->
+                    <target>1.8</target>  <!-- or higher version like 17 -->
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
