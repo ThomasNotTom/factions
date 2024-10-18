@@ -1,11 +1,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.myplugin</groupId>
-  <artifactId>myplugin</artifactId>
+  <groupId>com.factions</groupId>
+  <artifactId>factions</artifactId>
   <packaging>jar</packaging>
   <version>1.0-SNAPSHOT</version>
-  <name>myplugin</name>
+  <name>faction</name>
   <url>http://maven.apache.org</url>
   <properties>
     <maven.compiler.source>17</maven.compiler.source>  <!-- or higher version like 17 -->
@@ -27,7 +27,7 @@
     <dependency>
       <groupId>org.spigotmc</groupId>
       <artifactId>spigot-api</artifactId>
-      <version>1.20.2-R0.1-SNAPSHOT</version> <!-- or your server version -->
+      <version>1.20.2-R0.1-SNAPSHOT</version>
       <scope>provided</scope>
     </dependency>
   </dependencies>
@@ -38,8 +38,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
                 <configuration>
-                    <source>1.8</source>  <!-- or higher version like 17 -->
-                    <target>1.8</target>  <!-- or higher version like 17 -->
+                    <source>1.8</source>
+                    <target>1.8</target>
                 </configuration>
             </plugin>
         </plugins>
@@ -47,7 +47,7 @@
             <resource>
                 <directory>src/main/resources</directory>
                 <includes>
-                    <include>plugin.yml</include> <!-- Include all YML files -->
+                    <include>plugin.yml</include>
                 </includes>
             </resource>
         </resources>
