@@ -2,15 +2,35 @@ package com.factions;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
+import org.bukkit.Color;
 import org.bukkit.entity.Player;
 
 import com.factions.FactionMember.Status;
 
 public class Faction {
+    public final static List<ChatColor> FACTION_COLORS = Arrays.asList(
+            ChatColor.AQUA,
+            ChatColor.BLUE,
+            ChatColor.DARK_AQUA,
+            ChatColor.DARK_BLUE,
+            ChatColor.DARK_GRAY,
+            ChatColor.DARK_GREEN,
+            ChatColor.DARK_PURPLE,
+            ChatColor.DARK_RED,
+            ChatColor.GOLD,
+            ChatColor.GRAY,
+            ChatColor.GREEN,
+            ChatColor.LIGHT_PURPLE,
+            ChatColor.RED,
+            ChatColor.WHITE,
+            ChatColor.YELLOW);
+
     public final static int STARTING_MONEY = 0;
 
     public List<FactionMember> members = new ArrayList<FactionMember>();
@@ -18,10 +38,14 @@ public class Faction {
     public String name;
     public int money;
 
+    public ChatColor chatColor;
+
     public Faction(UUID ownerUUID, String name, int money) {
         this.members.add(new FactionMember(ownerUUID, Status.OWNER));
         this.name = name;
         this.money = money;
+
+        this.chatColor = Faction.FACTION_COLORS.get((int) Math.floor(Math.random() * Faction.FACTION_COLORS.size()));
     }
 
     public FactionMember getOwner() {
