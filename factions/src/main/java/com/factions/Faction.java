@@ -1,6 +1,5 @@
 package com.factions;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -8,7 +7,6 @@ import java.util.UUID;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.Color;
 import org.bukkit.entity.Player;
 
 import com.factions.FactionMember.Status;
@@ -80,6 +78,14 @@ public class Faction {
 
             player.sendMessage(message);
         }
+    }
+
+    public Float getValue() {
+        Float balance = (float) this.money;
+        for (FactionMember member : this.members) {
+            balance += Finance.getMoney(member.uuid);
+        }
+        return balance;
     }
 
     public void join(Player player) {
