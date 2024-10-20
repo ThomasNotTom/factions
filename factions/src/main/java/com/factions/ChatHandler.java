@@ -5,8 +5,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
-import org.bukkit.potion.PotionEffect;
-import org.bukkit.potion.PotionEffectType;
 
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
@@ -19,8 +17,9 @@ public class ChatHandler implements Listener {
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
-        player.addPotionEffect(new PotionEffect(PotionEffectType.FAST_DIGGING, 10 * 1000, 100, true, true));
         player.getServer().broadcastMessage("Welcome, " + ChatColor.BLUE + event.getPlayer().getName());
+        FactionScoreboardManager.updateScoreboard(player.getUniqueId());
+
     }
 
     @EventHandler
@@ -40,7 +39,7 @@ public class ChatHandler implements Listener {
                     new ComponentBuilder(
                             "-- " + faction.chatColor + faction.name + ChatColor.WHITE + " --\n" + "Value - £"
                                     + ChatColor.GREEN
-                                    + faction.money)
+                                    + faction.getValue())
                             .create()));
         }
 
